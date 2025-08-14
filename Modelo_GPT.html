@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Anos 2000 — Moda • Tecnologia • Fatos • Cultura</title>
+  <style>
+    /* ====== Tema básico (HTML + CSS PURO) ====== */
+    :root{
+      --bg: #0f172a;        /* slate-900 */
+      --bg-soft:#111827;    /* gray-900 */
+      --card:#0b1222;       /* deep card */
+      --accent:#22d3ee;     /* cyan-400 */
+      --accent-2:#a78bfa;   /* violet-400 */
+      --text:#e5e7eb;       /* gray-200 */
+      --muted:#94a3b8;      /* slate-400 */
+      --ring: rgba(34,211,238,.25);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0}
+    body{
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Inter, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(1200px 600px at 10% -20%, rgba(167,139,250,.15), transparent 60%),
+        radial-gradient(1200px 700px at 110% 10%, rgba(34,211,238,.12), transparent 55%),
+        var(--bg);
+      line-height:1.6;
+    }
+    a{color:var(--accent); text-decoration:none}
+    a:hover{opacity:.9}
+
+    /* ====== Layout ====== */
+    .container{width:min(1100px, 92vw); margin-inline:auto;}
+    header{
+      position:sticky; top:0; z-index:20;
+      background:linear-gradient(180deg, rgba(15,23,42,.95), rgba(15,23,42,.65));
+      backdrop-filter: blur(6px);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .nav{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 0}
+    .brand{display:flex; align-items:center; gap:10px}
+    .brand .dot{width:12px; height:12px; border-radius:50%; background:linear-gradient(135deg,var(--accent),var(--accent-2)); box-shadow:0 0 24px var(--ring)}
+    .brand h1{font-size:clamp(18px,2vw,22px); margin:0}
+    .nav a{font-size:14px; color:var(--text); opacity:.9}
+    .nav a:hover{color:white}
+
+    .hero{padding:56px 0 32px}
+    .hero h2{font-size:clamp(28px,5vw,44px); margin:0 0 6px}
+    .hero p{color:var(--muted); margin:6px 0 18px}
+
+    .grid{display:grid; gap:18px}
+    @media(min-width:900px){ .grid-3{grid-template-columns:repeat(3,1fr)} }
+    @media(min-width:700px){ .grid-2{grid-template-columns:repeat(2,1fr)} }
+
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.00));
+      border:1px solid rgba(255,255,255,.06);
+      border-radius:18px; padding:18px;
+      box-shadow:0 10px 30px rgba(0,0,0,.25);
+    }
+    .card h3{margin:0 0 6px; font-size:22px}
+    .card p{margin:0; color:var(--muted)}
+
+    /* Pills / tags */
+    .pill{display:inline-block; padding:6px 10px; border-radius:999px; font-size:12px; margin:6px 6px 0 0; border:1px solid rgba(255,255,255,.12)}
+
+    /* Galeria de imagens (substituir src pelos seus arquivos) */
+    .gallery{display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:12px}
+    .shot{position:relative; border-radius:16px; overflow:hidden; border:1px solid rgba(255,255,255,.08); min-height:160px; background:var(--card)}
+    .shot img{width:100%; height:100%; object-fit:cover; display:block; filter:saturate(1.05)}
+    .shot small{position:absolute; inset:auto 8px 8px 8px; color:#cbd5e1; background:rgba(15,23,42,.65); padding:2px 8px; border-radius:8px; font-size:12px}
+
+    /* Linha do tempo */
+    .timeline{position:relative; margin:10px 0 0; padding-left:14px}
+    .timeline::before{content:""; position:absolute; left:6px; top:0; bottom:0; width:2px; background:linear-gradient(var(--accent),transparent)}
+    .t-item{position:relative; margin:14px 0 14px 0; padding-left:16px}
+    .t-item::before{content:""; position:absolute; left:-2px; top:6px; width:10px; height:10px; border-radius:50%; background:linear-gradient(135deg,var(--accent),var(--accent-2)); box-shadow:0 0 0 4px var(--ring)}
+    .t-year{font-weight:700; color:white}
+    .t-note{color:var(--muted)}
+
+    /* Rodapé */
+    footer{margin:28px 0 60px; color:var(--muted); font-size:14px; text-align:center}
+
+    /* Acessibilidade rápida */
+    :focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+    .skip{position:absolute; left:-9999px}
+    .skip:focus{left:10px; top:10px; background:black; padding:8px 10px; border-radius:10px}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+  
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="dot" aria-hidden="true"></div>
+        <h1>Anos 2000 — Uma Viagem no Tempo</h1>
+      </div>
+      <nav aria-label="Seções">
+        <a href="#tec">Tecnologia</a>
+        <span>·</span>
+        <a href="#moda">Moda</a>
+        <span>·</span>
+        <a href="#fatos">Fatos</a>
+        <span>·</span>
+        <a href="#cultura">Cultura</a>
+        <span>·</span>
+        <a href="#galeria">Imagens</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo" class="container">
+    <section class="hero">
+      <h2>2000–2009: Internet popular, celulares com câmera, reality shows e muito jeans!</h2>
+      <p>Site temático com um panorama rápido da década: <strong>Tecnologia em destaque</strong>, <strong>moda</strong>, <strong>fatos históricos</strong> e <strong>cultura & comportamento</strong>.</p>
+    </section>
+
+    <!-- ====== TECNOLOGIA EM DESTAQUE ====== -->
+    <section id="tec" class="card" aria-labelledby="tec-title">
+      <h3 id="tec-title">Tecnologia em destaque</h3>
+      <p class="muted">Grandes mudanças no jeito de se comunicar, ouvir música e consumir informação.</p>
+      <ul>
+        <li>Mensageiros e redes: <strong>MSN</strong>, <strong>Orkut</strong> e fóruns/lan houses.</li>
+        <li>Música digital: <strong>MP3</strong>, iPod, CDs graváveis, ringtones.</li>
+        <li>Conteúdo colaborativo: <strong>Wikipedia</strong> e blogs.</li>
+        <li>Vídeo online: início do <strong>YouTube</strong> (meio da década).</li>
+        <li>Games populares: <strong>PlayStation 2</strong>, Nintendo DS e início dos eSports.</li>
+        <li>Celulares cada vez menores (e depois maiores): câmeras, SMS, toques personalizados.</li>
+      </ul>
+      <div>
+        <span class="pill">Banda larga chegando</span>
+        <span class="pill">Wi‑Fi em casa</span>
+        <span class="pill">Câmeras digitais</span>
+        <span class="pill">Pendrive</span>
+      </div>
+    </section>
+
+    <!-- ====== MODA ====== -->
+    <section id="moda" class="card" aria-labelledby="moda-title">
+      <h3 id="moda-title">Moda da época</h3>
+      <ul>
+        <li>Muito <strong>jeans</strong>: calça de cintura baixa, lavagem desgastada, jaquetas e saias.</li>
+        <li>Blusas <strong>baby look</strong>, camisetas estampadas e alças finas.</li>
+        <li><strong>Tênis casuais</strong> (All Star, Adidas Superstar) e cintos largos.</li>
+        <li>Óculos grandes, bonés, presilhas e pulseiras de silicone.</li>
+        <li>Estilos marcantes: <em>emo</em>, <em>pop punk</em>, <em>streetwear</em>, brilho metálico nas festas.</li>
+      </ul>
+    </section>
+
+    <!-- ====== FATOS HISTÓRICOS ====== -->
+    <section id="fatos" class="card" aria-labelledby="fatos-title">
+      <h3 id="fatos-title">Fatos históricos importantes</h3>
+      <div class="timeline">
+        <div class="t-item"><span class="t-year">2001</span> — <span class="t-note">Atentados de 11 de setembro e início da “guerra ao terror”.</span></div>
+        <div class="t-item"><span class="t-year">2002</span> — <span class="t-note">No Brasil, estreia do BBB e eleições presidenciais.</span></div>
+        <div class="t-item"><span class="t-year">2004</span> — <span class="t-note">Tsunami no Oceano Índico mobiliza ajuda internacional.</span></div>
+        <div class="t-item"><span class="t-year">2007</span> — <span class="t-note">Jogos Pan-Americanos no Rio; descobertas do pré-sal entram em destaque.</span></div>
+        <div class="t-item"><span class="t-year">2008</span> — <span class="t-note">Crise financeira global impacta economias.</span></div>
+      </div>
+    </section>
+
+    <!-- ====== CULTURA & COMPORTAMENTO ====== -->
+    <section id="cultura" class="card" aria-labelledby="cultura-title">
+      <h3 id="cultura-title">Cultura & comportamento</h3>
+      <ul>
+        <li>Explosão de <strong>reality shows</strong> e programas de auditório.</li>
+        <li><strong>Lan houses</strong>, salas de bate-papo e os primeiros <em>memes</em>.</li>
+        <li>Música: pop internacional, <em>rock/emo</em>, pop punk; no Brasil, <strong>funk carioca</strong>, <strong>sertanejo universitário</strong> e pop nacional.</li>
+        <li>Cinema com grandes franquias e a moda dos DVDs.</li>
+        <li>Comunicação por <strong>SMS</strong> e “recadinhos” nas redes.</li>
+      </ul>
+      <div>
+        <span class="pill">Lan house</span>
+        <span class="pill">Torrents & DVDs</span>
+        <span class="pill">Toques polifônicos</span>
+        <span class="pill">Memes nascendo</span>
+      </div>
+    </section>
+
+    <!-- ====== GALERIA / IMAGENS ====== -->
+    <section id="galeria" class="card" aria-labelledby="galeria-title">
+      <h3 id="galeria-title">Imagens (substitua pelos seus arquivos)</h3>
+      <p class="muted">Dica: crie uma pasta <code>images/</code> e troque os <code>src</code> abaixo por fotos de moda, tecnologia e personalidades dos anos 2000 com créditos.</p>
+      <div class="gallery">
+        <figure class="shot">
+          <img src="images/moda-anos-2000.jpg" alt="Moda típica dos anos 2000 (jeans, baby look, óculos grandes)">
+          <small>Moda</small>
+        </figure>
+        <figure class="shot">
+          <img src="images/celular-com-camera.jpg" alt="Celular com câmera, popular nos anos 2000">
+          <small>Tecnologia</small>
+        </figure>
+        <figure class="shot">
+          <img src="images/lan-house.jpg" alt="Lan house lotada nos anos 2000">
+          <small>Comportamento</small>
+        </figure>
+        <figure class="shot">
+          <img src="images/cds-dvds.jpg" alt="CDs e DVDs, formatos populares na década">
+          <small>Mídia</small>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ====== CRÉDITOS / REFERÊNCIAS (opcional) ====== -->
+    <section class="card" aria-labelledby="ref-title">
+      <h3 id="ref-title">Como foi feito</h3>
+      <ul>
+        <li>Página criada em <strong>HTML + CSS</strong> puro (um único arquivo).</li>
+        <li>Layout responsivo com <em>grid</em>, cartões e linha do tempo.</li>
+        <li>Substitua as imagens por arquivos próprios e acrescente fontes/créditos do grupo.</li>
+      </ul>
+    </section>
+
+    <footer>
+      Projeto escolar — <strong>Anos 2000</strong> • Feito pelo grupo ✨
+    </footer>
+  </main>
+</body>
+</html>
